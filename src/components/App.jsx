@@ -13,6 +13,14 @@ function App() {
     });
   }
 
+  function handleDelete(id) {
+    setNotes((preValue) => {
+      return preValue.filter((note, index) => {
+        return id !== index;
+      });
+    });
+  }
+
   return (
     <div>
       <Header />
@@ -24,6 +32,7 @@ function App() {
             id={index}
             title={note.title}
             content={note.content}
+            onDelete={handleDelete}
           />
         );
       })}
